@@ -9,11 +9,12 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var catalog = require('./routes/catalog');  //Import routes for "catalog" area of site
 
+var credentials = require('./credentials')
 var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://luuk_dev:luuk_dev123@ds131061.mlab.com:31061/locallib';
+var mongoDB = 'mongodb://'+credentials.user+':'+credentials.pw+'@ds131061.mlab.com:31061/locallib';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
